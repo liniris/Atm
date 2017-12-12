@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     boolean logon = false;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 String userid = data.getStringExtra("LOGIN_USERID");
                 String passwd = data.getStringExtra("LOGIN_PASSWD");
                 Log.d("Result", userid + "/" + passwd);
+                Toast.makeText(this,"Login userid: " + userid,Toast.LENGTH_LONG).show();
             }else{
                 finish();
             }
@@ -49,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
         startActivityForResult(intent, FUNC_LOGIN);
         }
+
+        Intent intent = getIntent();
+        //String userna = intent.getStringExtra("EXTRE_NAME", null);
+
     }
 
 

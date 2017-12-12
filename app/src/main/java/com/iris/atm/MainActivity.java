@@ -20,15 +20,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == FUNC_LOGIN){
-            if (resultCode == RESULT_OK){
-                String userid = data.getStringExtra("LOGIN_USERID");
-                String passwd = data.getStringExtra("LOGIN_PASSWD");
-                Log.d("Result", userid + "/" + passwd);
-                Toast.makeText(this,"Login userid: " + userid,Toast.LENGTH_LONG).show();
-            }else{
-                finish();
-            }
+        switch (requestCode){
+            case FUNC_LOGIN :
+                if (resultCode ==RESULT_OK){
+                    String userid = data.getStringExtra("LOGIN_USERID");
+                    String passwd = data.getStringExtra("LOGIN_PASSWD");
+                    Toast.makeText(this,"Login userid: " + userid,Toast.LENGTH_LONG).show();
+                    getSharedPreferences("atm" , MODE_PRIVATE)
+                            .edit()
+                            .putString("LOGIN_USERID" , userid)
+                            .apply();
+                }else{
+                    finish();
+                }
+                break;
+           // if (resultCode ==RESULT_OK){
+                //String nickname = data.getStringExtra("EXTRE_NICKNAME");
+                //String phone = data.getStringExtra("EXTRE_PHONE") ;
+                //Toast.makeText(this,"Nickname: " + nickname,Toast.LENGTH_LONG).show();
+           // }
+
         }
     }
 

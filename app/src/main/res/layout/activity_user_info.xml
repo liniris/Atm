@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
-        android:onClick="login"
+        android:onClick="ok"
         android:text="OK"
         app:layout_constraintLeft_toLeftOf="@+id/phone"
         app:layout_constraintTop_toBottomOf="@+id/phone" />

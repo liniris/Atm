@@ -10,19 +10,28 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private EditText edUserid;
+    private EditText edPasswd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+        edUserid = (EditText) findViewById(R.id.userid);
+        edPasswd = (EditText) findViewById(R.id.passwd);
+        String userid = getSharedPreferences("atm" ,MODE_PRIVATE)
+                .getString("EXTRA_USERID"," ");
+        edUserid.setText(userid);
+
     }
     public void login(View view){
-        EditText edUserid = (EditText) findViewById(R.id.userid);
-        EditText edPasswd = (EditText) findViewById(R.id.passwd);
+
+
         String userid = edUserid.getText().toString();
         String passwd = edPasswd.getText().toString();
         if("iris".equals(userid) && "1234".equals(passwd)){
             Toast.makeText(this,"登入成功",Toast.LENGTH_LONG).show();
-            getIntent().putExtra("EXRA_USERID",userid);
+            getIntent().putExtra("EXTRA_USERID",userid);
             setResult(RESULT_OK,getIntent());
 
 //            getIntent().putExtra("LOGIN_USERID", userid);

@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import static com.iris.atm.R.id.username;
 
 public class UserInfoActivity extends AppCompatActivity {
 
@@ -17,15 +14,14 @@ public class UserInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_info);
     }
     public void login(View view) {
-        EditText userna = (EditText) findViewById(R.id.username);
-        EditText userph = (EditText) findViewById(R.id.userph);
-        String username = userna.getText().toString();
+        EditText nickName = (EditText) findViewById(R.id.ednickname);
+        EditText userph = (EditText) findViewById(R.id.phone);
+        String nickname = nickName.getText().toString();
         String userphone = userph.getText().toString();
-
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("EXTRE_NAME", username);
-        intent.putExtra("EXTRE_PHONE", userphone);
-        startActivity(intent);
+        getIntent().putExtra("EXTRE_NICKNAME",nickname);
+        getIntent().putExtra("EXTRE_PHONE",userphone);
+        setResult(RESULT_OK,getIntent());
+        finish();
 
     }
 }

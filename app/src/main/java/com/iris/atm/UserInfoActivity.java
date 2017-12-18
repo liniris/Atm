@@ -21,15 +21,15 @@ public class UserInfoActivity extends AppCompatActivity {
                 .getString("EXTRA_NICKNAME"," ");
        nickName.setText(nickna);
         String phone = getSharedPreferences("atm" ,MODE_PRIVATE)
-                .getString("EXTRE_PHONE" ," ");
+                .getString("EXTRA_PHONE" ," ");
         userph.setText(phone);
     }
     public void ok(View view) {
 
         String nickname = nickName.getText().toString();
         String userphone = userph.getText().toString();
-        getIntent().putExtra("EXTRE_NICKNAME",nickname);
-        getIntent().putExtra("EXTRE_PHONE",userphone);
+        getIntent().putExtra("EXTRA_NICKNAME",nickname);
+        getIntent().putExtra("EXTRA_PHONE",userphone);
         setResult(RESULT_OK,getIntent());
         finish();
 

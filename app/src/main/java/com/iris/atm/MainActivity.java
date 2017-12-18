@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     boolean logon = false;
     public static final int FUNC_LOGIN = 1;
-
+    public static final int FUNC_INFO = 2;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -33,7 +33,21 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     finish();
                 }
+
                 break;
+            case FUNC_INFO:
+                if (resultCode == RESULT_OK) {
+                    String nickname = data.getStringExtra("EXTRA_NICKNAME");
+                    String phone = data.getStringExtra("EXTRA_PHONE");
+                    Toast.makeText(this, "暱稱 : " + nickname + ", 電話 : " + phone, Toast.LENGTH_SHORT).show();
+                    getSharedPreferences("atm", MODE_PRIVATE)
+                            .edit()
+                            .putString("EXTRA_NICKNAME", nickname)
+                            .putString("EXTRA_PHONE", phone)
+                            .apply();
+                } else {
+                    finish();
+                }
            // if (resultCode ==RESULT_OK){
                 //String nickname = data.getStringExtra("EXTRE_NICKNAME");
                 //String phone = data.getStringExtra("EXTRE_PHONE") ;
@@ -49,14 +63,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+               // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
+               @Override
+               public void onClick(View view) {
+               Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+               startActivityForResult(intent, FUNC_INFO);
+        }
         });
         if (!logon) {
             Intent intent = new Intent(this, LoginActivity.class);

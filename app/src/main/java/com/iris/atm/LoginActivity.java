@@ -34,9 +34,9 @@ public class LoginActivity extends AppCompatActivity {
             getIntent().putExtra("EXTRA_USERID",userid);
             setResult(RESULT_OK,getIntent());
 
-//            getIntent().putExtra("LOGIN_USERID", userid);
-//            getIntent().putExtra("LOGIN_PASSWD", passwd);
-//            setResult(RESULT_OK, getIntent());
+          getIntent().putExtra("LOGIN_USERID", userid);
+           getIntent().putExtra("LOGIN_PASSWD", passwd);
+           setResult(RESULT_OK, getIntent());
             finish();
         }else {
             new AlertDialog.Builder(this)

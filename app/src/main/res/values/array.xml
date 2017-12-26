@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="address">
+        <item>基隆市</item>
+        <item>新北市</item>
+        <item>台北市</item>
+    </string-array>
+    <string-array name="k">
+        <item>中正區</item>
+        <item>暖暖區</item>
+        <item>八堵區</item>
+    </string-array>
+    <string-array name="n">
+        <item>永和區</item>
+        <item>板橋區</item>
+        <item>新莊區</item>
+    </string-array>
+    <string-array name="t">
+        <item>信義區</item>
+        <item>大安區</item>
+        <item>士林區</item>
+    </string-array>
+</resources>

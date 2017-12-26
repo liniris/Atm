@@ -43,6 +43,7 @@ public class UserInfoActivity extends AppCompatActivity {
         String phone = getSharedPreferences("atm" ,MODE_PRIVATE)
                 .getString("EXTRA_PHONE" ," ");
         userph.setText(phone);
+
     }
     public void ok(View view) {
         Log.d(TAG,"ok : " + ages.getSelectedItem().toString());
@@ -55,4 +56,8 @@ public class UserInfoActivity extends AppCompatActivity {
         finish();
 
     }
+public void addr(View view){
+    startActivity(new Intent(this,CityActivity.class));
+    //startActivity(new Intent(this,AddrActivity.class));
+}
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iris.atm.AddrActivity">
+
+    <Spinner
+        android:id="@+id/city"
+        android:layout_width="142dp"
+        android:layout_height="59dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:dropDownWidth="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/downtown"
+        android:layout_width="141dp"
+        android:layout_height="66dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        android:dropDownWidth="match_parent"
+        app:layout_constraintLeft_toLeftOf="@+id/city"
+        app:layout_constraintTop_toBottomOf="@+id/city" />
+</android.support.constraint.ConstraintLayout>

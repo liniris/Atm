@@ -81,4 +81,15 @@
         app:layout_constraintLeft_toRightOf="@+id/textView5"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="addr"
+        android:text="住址"
+        app:layout_constraintLeft_toRightOf="@+id/Ok"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </android.support.constraint.ConstraintLayout>

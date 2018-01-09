@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -85,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //String userna = intent.getStringExtra("EXTRE_NAME", null);
 
+        ListView list = (ListView) findViewById(R.id.list);
+        String[] str = new String[]{"AAA","BBB","CCC"};
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, str);
+        list.setAdapter(adapter);
     }
 
 
